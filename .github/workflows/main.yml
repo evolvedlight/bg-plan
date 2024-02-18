@@ -1,0 +1,27 @@
+name: Generate PDF
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+
+    - name: Install dependencies
+      run: |
+        apt install weasyprint
+
+    - name: Run script
+      run: weasyprint input.html output.pdf
+
+    - name: Upload PDF as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-pdf
+        path: ./output.pdf
