@@ -18,7 +18,7 @@ jobs:
         sudo apt install weasyprint
 
     - name: Run script
-      run: weasyprint input.html output.pdf
+      run: weasyprint index.htm output.pdf
 
     - name: Upload PDF as artifact
       uses: actions/upload-artifact@v4
