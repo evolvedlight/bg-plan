@@ -10,12 +10,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
 
     - name: Install dependencies
       run: |
-        apt install weasyprint
+        sudo apt install weasyprint
 
     - name: Run script
       run: weasyprint input.html output.pdf
